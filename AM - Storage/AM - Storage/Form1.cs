@@ -16,10 +16,7 @@ namespace AM___Storage
         public Form1()
         {
             InitializeComponent();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
             //SQLiteConnection.CreateFile("AdventureManager.db");
 
             SQLiteConnection dbConn = new SQLiteConnection("Data Source=AdventureManager.db;Version=3");
@@ -28,9 +25,23 @@ namespace AM___Storage
             SQLiteCommand command = new SQLiteCommand(sql, dbConn);
             command.ExecuteNonQuery();
 
-            sql = "create table if not exists Items(ID Integer primary key, weight int, quality string, is_in_storage bool, type string)";
+            sql = "create table if not exists Armor(ID Integer primary key, weight int, quality string, is_in_storage bool, type string, dmg_mitigation int)";
             command = new SQLiteCommand(sql, dbConn);
             command.ExecuteNonQuery();
+
+            sql = "create table if not exists Weapon(ID Integer primary key, weight int, quality string, is_in_storage bool, type string, dmg int)";
+            command = new SQLiteCommand(sql, dbConn);
+            command.ExecuteNonQuery();
+
+            sql = "create table if not exists Trinket(ID Integer primary key, weight int, quality string, is_in_storage bool, type string, Attribute_type string, Attribute_value int)";
+            command = new SQLiteCommand(sql, dbConn);
+            command.ExecuteNonQuery();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
 
         }
 
