@@ -1,0 +1,703 @@
+diff --git a/AM - Storage/AM - Storage.sln b/AM - Storage/AM - Storage.sln
+new file mode 100644
+index 0000000..2495d90
+--- /dev/null
++++ b/AM - Storage/AM - Storage.sln	
+@@ -0,0 +1,22 @@
++﻿
++Microsoft Visual Studio Solution File, Format Version 12.00
++# Visual Studio 2013
++VisualStudioVersion = 12.0.30501.0
++MinimumVisualStudioVersion = 10.0.40219.1
++Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AM - Storage", "AM - Storage\AM - Storage.csproj", "{7383A09A-B990-488A-A3A8-A81F5A54FE7F}"
++EndProject
++Global
++	GlobalSection(SolutionConfigurationPlatforms) = preSolution
++		Debug|Any CPU = Debug|Any CPU
++		Release|Any CPU = Release|Any CPU
++	EndGlobalSection
++	GlobalSection(ProjectConfigurationPlatforms) = postSolution
++		{7383A09A-B990-488A-A3A8-A81F5A54FE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
++		{7383A09A-B990-488A-A3A8-A81F5A54FE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
++		{7383A09A-B990-488A-A3A8-A81F5A54FE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
++		{7383A09A-B990-488A-A3A8-A81F5A54FE7F}.Release|Any CPU.Build.0 = Release|Any CPU
++	EndGlobalSection
++	GlobalSection(SolutionProperties) = preSolution
++		HideSolutionNode = FALSE
++	EndGlobalSection
++EndGlobal
+diff --git a/AM - Storage/AM - Storage/AM - Storage.csproj b/AM - Storage/AM - Storage/AM - Storage.csproj
+new file mode 100644
+index 0000000..f8ab627
+--- /dev/null
++++ b/AM - Storage/AM - Storage/AM - Storage.csproj	
+@@ -0,0 +1,94 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
++  <PropertyGroup>
++    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
++    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
++    <ProjectGuid>{7383A09A-B990-488A-A3A8-A81F5A54FE7F}</ProjectGuid>
++    <OutputType>WinExe</OutputType>
++    <AppDesignerFolder>Properties</AppDesignerFolder>
++    <RootNamespace>AM___Storage</RootNamespace>
++    <AssemblyName>AM - Storage</AssemblyName>
++    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
++    <FileAlignment>512</FileAlignment>
++    <TargetFrameworkProfile />
++  </PropertyGroup>
++  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
++    <PlatformTarget>x86</PlatformTarget>
++    <DebugSymbols>true</DebugSymbols>
++    <DebugType>full</DebugType>
++    <Optimize>false</Optimize>
++    <OutputPath>bin\Debug\</OutputPath>
++    <DefineConstants>DEBUG;TRACE</DefineConstants>
++    <ErrorReport>prompt</ErrorReport>
++    <WarningLevel>4</WarningLevel>
++  </PropertyGroup>
++  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
++    <PlatformTarget>AnyCPU</PlatformTarget>
++    <DebugType>pdbonly</DebugType>
++    <Optimize>true</Optimize>
++    <OutputPath>bin\Release\</OutputPath>
++    <DefineConstants>TRACE</DefineConstants>
++    <ErrorReport>prompt</ErrorReport>
++    <WarningLevel>4</WarningLevel>
++  </PropertyGroup>
++  <ItemGroup>
++    <Reference Include="System" />
++    <Reference Include="System.Core" />
++    <Reference Include="System.Data.SQLite, Version=1.0.95.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
++      <SpecificVersion>False</SpecificVersion>
++      <HintPath>..\..\..\DLL's to use\System.Data.SQLite.dll</HintPath>
++    </Reference>
++    <Reference Include="System.Xml.Linq" />
++    <Reference Include="System.Data.DataSetExtensions" />
++    <Reference Include="Microsoft.CSharp" />
++    <Reference Include="System.Data" />
++    <Reference Include="System.Deployment" />
++    <Reference Include="System.Drawing" />
++    <Reference Include="System.Windows.Forms" />
++    <Reference Include="System.Xml" />
++  </ItemGroup>
++  <ItemGroup>
++    <Compile Include="Form1.cs">
++      <SubType>Form</SubType>
++    </Compile>
++    <Compile Include="Form1.Designer.cs">
++      <DependentUpon>Form1.cs</DependentUpon>
++    </Compile>
++    <Compile Include="Program.cs" />
++    <Compile Include="Properties\AssemblyInfo.cs" />
++    <EmbeddedResource Include="Form1.resx">
++      <DependentUpon>Form1.cs</DependentUpon>
++    </EmbeddedResource>
++    <EmbeddedResource Include="Properties\Resources.resx">
++      <Generator>ResXFileCodeGenerator</Generator>
++      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
++      <SubType>Designer</SubType>
++    </EmbeddedResource>
++    <Compile Include="Properties\Resources.Designer.cs">
++      <AutoGen>True</AutoGen>
++      <DependentUpon>Resources.resx</DependentUpon>
++      <DesignTime>True</DesignTime>
++    </Compile>
++    <None Include="Properties\Settings.settings">
++      <Generator>SettingsSingleFileGenerator</Generator>
++      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
++    </None>
++    <Compile Include="Properties\Settings.Designer.cs">
++      <AutoGen>True</AutoGen>
++      <DependentUpon>Settings.settings</DependentUpon>
++      <DesignTimeSharedInput>True</DesignTimeSharedInput>
++    </Compile>
++  </ItemGroup>
++  <ItemGroup>
++    <None Include="App.config" />
++  </ItemGroup>
++  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
++  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
++       Other similar extension points exist, see Microsoft.Common.targets.
++  <Target Name="BeforeBuild">
++  </Target>
++  <Target Name="AfterBuild">
++  </Target>
++  -->
++</Project>
+\ No newline at end of file
+diff --git a/AM - Storage/AM - Storage/App.config b/AM - Storage/AM - Storage/App.config
+new file mode 100644
+index 0000000..d0feca6
+--- /dev/null
++++ b/AM - Storage/AM - Storage/App.config	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<configuration>
++    <startup> 
++        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.1"/>
++    </startup>
++</configuration>
+diff --git a/AM - Storage/AM - Storage/Form1.Designer.cs b/AM - Storage/AM - Storage/Form1.Designer.cs
+new file mode 100644
+index 0000000..ad02ae2
+--- /dev/null
++++ b/AM - Storage/AM - Storage/Form1.Designer.cs	
+@@ -0,0 +1,70 @@
++﻿namespace AM___Storage
++{
++    partial class Form1
++    {
++        /// <summary>
++        /// Required designer variable.
++        /// </summary>
++        private System.ComponentModel.IContainer components = null;
++
++        /// <summary>
++        /// Clean up any resources being used.
++        /// </summary>
++        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
++        protected override void Dispose(bool disposing)
++        {
++            if (disposing && (components != null))
++            {
++                components.Dispose();
++            }
++            base.Dispose(disposing);
++        }
++
++        #region Windows Form Designer generated code
++
++        /// <summary>
++        /// Required method for Designer support - do not modify
++        /// the contents of this method with the code editor.
++        /// </summary>
++        private void InitializeComponent()
++        {
++            this.components = new System.ComponentModel.Container();
++            this.button1 = new System.Windows.Forms.Button();
++            this.timer1 = new System.Windows.Forms.Timer(this.components);
++            this.SuspendLayout();
++            // 
++            // button1
++            // 
++            this.button1.Location = new System.Drawing.Point(349, 121);
++            this.button1.Name = "button1";
++            this.button1.Size = new System.Drawing.Size(75, 23);
++            this.button1.TabIndex = 0;
++            this.button1.Text = "button1";
++            this.button1.UseVisualStyleBackColor = true;
++            this.button1.Click += new System.EventHandler(this.button1_Click);
++            // 
++            // timer1
++            // 
++            this.timer1.Enabled = true;
++            this.timer1.Interval = 20;
++            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
++            // 
++            // Form1
++            // 
++            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
++            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
++            this.ClientSize = new System.Drawing.Size(644, 413);
++            this.Controls.Add(this.button1);
++            this.Name = "Form1";
++            this.Text = "Form1";
++            this.ResumeLayout(false);
++
++        }
++
++        #endregion
++
++        private System.Windows.Forms.Button button1;
++        private System.Windows.Forms.Timer timer1;
++    }
++}
++
+diff --git a/AM - Storage/AM - Storage/Form1.cs b/AM - Storage/AM - Storage/Form1.cs
+new file mode 100644
+index 0000000..c5e93e7
+--- /dev/null
++++ b/AM - Storage/AM - Storage/Form1.cs	
+@@ -0,0 +1,42 @@
++﻿using System;
++using System.Collections.Generic;
++using System.ComponentModel;
++using System.Data;
++using System.Data.SQLite;
++using System.Drawing;
++using System.Linq;
++using System.Text;
++using System.Threading.Tasks;
++using System.Windows.Forms;
++
++namespace AM___Storage
++{
++    public partial class Form1 : Form
++    {
++        public Form1()
++        {
++            InitializeComponent();
++        }
++
++        private void button1_Click(object sender, EventArgs e)
++        {
++            //SQLiteConnection.CreateFile("AdventureManager.db");
++
++            SQLiteConnection dbConn = new SQLiteConnection("Data Source=AdventureManager.db;Version=3");
++            dbConn.Open();
++            String sql = "create table if not exists Storage(ID Integer primary key, player_id int, current_space_used int, maxsimum_space)";
++            SQLiteCommand command = new SQLiteCommand(sql, dbConn);
++            command.ExecuteNonQuery();
++
++            sql = "create table if not exists Items(ID Integer primary key, weight int, quality string, is_in_storage bool, type string)";
++            command = new SQLiteCommand(sql, dbConn);
++            command.ExecuteNonQuery();
++
++        }
++
++        private void timer1_Tick(object sender, EventArgs e)
++        {
++
++        }
++    }
++}
+diff --git a/AM - Storage/AM - Storage/Form1.resx b/AM - Storage/AM - Storage/Form1.resx
+new file mode 100644
+index 0000000..1f666f2
+--- /dev/null
++++ b/AM - Storage/AM - Storage/Form1.resx	
+@@ -0,0 +1,123 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<root>
++  <!-- 
++    Microsoft ResX Schema 
++    
++    Version 2.0
++    
++    The primary goals of this format is to allow a simple XML format 
++    that is mostly human readable. The generation and parsing of the 
++    various data types are done through the TypeConverter classes 
++    associated with the data types.
++    
++    Example:
++    
++    ... ado.net/XML headers & schema ...
++    <resheader name="resmimetype">text/microsoft-resx</resheader>
++    <resheader name="version">2.0</resheader>
++    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
++    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
++    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
++    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
++    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
++        <value>[base64 mime encoded serialized .NET Framework object]</value>
++    </data>
++    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
++        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
++        <comment>This is a comment</comment>
++    </data>
++                
++    There are any number of "resheader" rows that contain simple 
++    name/value pairs.
++    
++    Each data row contains a name, and value. The row also contains a 
++    type or mimetype. Type corresponds to a .NET class that support 
++    text/value conversion through the TypeConverter architecture. 
++    Classes that don't support this are serialized and stored with the 
++    mimetype set.
++    
++    The mimetype is used for serialized objects, and tells the 
++    ResXResourceReader how to depersist the object. This is currently not 
++    extensible. For a given mimetype the value must be set accordingly:
++    
++    Note - application/x-microsoft.net.object.binary.base64 is the format 
++    that the ResXResourceWriter will generate, however the reader can 
++    read any of the formats listed below.
++    
++    mimetype: application/x-microsoft.net.object.binary.base64
++    value   : The object must be serialized with 
++            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
++            : and then encoded with base64 encoding.
++    
++    mimetype: application/x-microsoft.net.object.soap.base64
++    value   : The object must be serialized with 
++            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
++            : and then encoded with base64 encoding.
++
++    mimetype: application/x-microsoft.net.object.bytearray.base64
++    value   : The object must be serialized into a byte array 
++            : using a System.ComponentModel.TypeConverter
++            : and then encoded with base64 encoding.
++    -->
++  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
++    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
++    <xsd:element name="root" msdata:IsDataSet="true">
++      <xsd:complexType>
++        <xsd:choice maxOccurs="unbounded">
++          <xsd:element name="metadata">
++            <xsd:complexType>
++              <xsd:sequence>
++                <xsd:element name="value" type="xsd:string" minOccurs="0" />
++              </xsd:sequence>
++              <xsd:attribute name="name" use="required" type="xsd:string" />
++              <xsd:attribute name="type" type="xsd:string" />
++              <xsd:attribute name="mimetype" type="xsd:string" />
++              <xsd:attribute ref="xml:space" />
++            </xsd:complexType>
++          </xsd:element>
++          <xsd:element name="assembly">
++            <xsd:complexType>
++              <xsd:attribute name="alias" type="xsd:string" />
++              <xsd:attribute name="name" type="xsd:string" />
++            </xsd:complexType>
++          </xsd:element>
++          <xsd:element name="data">
++            <xsd:complexType>
++              <xsd:sequence>
++                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
++                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
++              </xsd:sequence>
++              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
++              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
++              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
++              <xsd:attribute ref="xml:space" />
++            </xsd:complexType>
++          </xsd:element>
++          <xsd:element name="resheader">
++            <xsd:complexType>
++              <xsd:sequence>
++                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
++              </xsd:sequence>
++              <xsd:attribute name="name" type="xsd:string" use="required" />
++            </xsd:complexType>
++          </xsd:element>
++        </xsd:choice>
++      </xsd:complexType>
++    </xsd:element>
++  </xsd:schema>
++  <resheader name="resmimetype">
++    <value>text/microsoft-resx</value>
++  </resheader>
++  <resheader name="version">
++    <value>2.0</value>
++  </resheader>
++  <resheader name="reader">
++    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
++  </resheader>
++  <resheader name="writer">
++    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
++  </resheader>
++  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
++    <value>17, 17</value>
++  </metadata>
++</root>
+\ No newline at end of file
+diff --git a/AM - Storage/AM - Storage/Program.cs b/AM - Storage/AM - Storage/Program.cs
+new file mode 100644
+index 0000000..f4c31c0
+--- /dev/null
++++ b/AM - Storage/AM - Storage/Program.cs	
+@@ -0,0 +1,22 @@
++﻿using System;
++using System.Collections.Generic;
++using System.Linq;
++using System.Threading.Tasks;
++using System.Windows.Forms;
++
++namespace AM___Storage
++{
++    static class Program
++    {
++        /// <summary>
++        /// The main entry point for the application.
++        /// </summary>
++        [STAThread]
++        static void Main()
++        {
++            Application.EnableVisualStyles();
++            Application.SetCompatibleTextRenderingDefault(false);
++            Application.Run(new Form1());
++        }
++    }
++}
+diff --git a/AM - Storage/AM - Storage/Properties/AssemblyInfo.cs b/AM - Storage/AM - Storage/Properties/AssemblyInfo.cs
+new file mode 100644
+index 0000000..871c15b
+--- /dev/null
++++ b/AM - Storage/AM - Storage/Properties/AssemblyInfo.cs	
+@@ -0,0 +1,36 @@
++﻿using System.Reflection;
++using System.Runtime.CompilerServices;
++using System.Runtime.InteropServices;
++
++// General Information about an assembly is controlled through the following 
++// set of attributes. Change these attribute values to modify the information
++// associated with an assembly.
++[assembly: AssemblyTitle("AM - Storage")]
++[assembly: AssemblyDescription("")]
++[assembly: AssemblyConfiguration("")]
++[assembly: AssemblyCompany("Hewlett-Packard")]
++[assembly: AssemblyProduct("AM - Storage")]
++[assembly: AssemblyCopyright("Copyright © Hewlett-Packard 2015")]
++[assembly: AssemblyTrademark("")]
++[assembly: AssemblyCulture("")]
++
++// Setting ComVisible to false makes the types in this assembly not visible 
++// to COM components.  If you need to access a type in this assembly from 
++// COM, set the ComVisible attribute to true on that type.
++[assembly: ComVisible(false)]
++
++// The following GUID is for the ID of the typelib if this project is exposed to COM
++[assembly: Guid("cef4cd70-49a6-4eb0-ba05-d2b644836f91")]
++
++// Version information for an assembly consists of the following four values:
++//
++//      Major Version
++//      Minor Version 
++//      Build Number
++//      Revision
++//
++// You can specify all the values or you can default the Build and Revision Numbers 
++// by using the '*' as shown below:
++// [assembly: AssemblyVersion("1.0.*")]
++[assembly: AssemblyVersion("1.0.0.0")]
++[assembly: AssemblyFileVersion("1.0.0.0")]
+diff --git a/AM - Storage/AM - Storage/Properties/Resources.Designer.cs b/AM - Storage/AM - Storage/Properties/Resources.Designer.cs
+new file mode 100644
+index 0000000..3cd342c
+--- /dev/null
++++ b/AM - Storage/AM - Storage/Properties/Resources.Designer.cs	
+@@ -0,0 +1,63 @@
++﻿//------------------------------------------------------------------------------
++// <auto-generated>
++//     This code was generated by a tool.
++//     Runtime Version:4.0.30319.34014
++//
++//     Changes to this file may cause incorrect behavior and will be lost if
++//     the code is regenerated.
++// </auto-generated>
++//------------------------------------------------------------------------------
++
++namespace AM___Storage.Properties {
++    using System;
++    
++    
++    /// <summary>
++    ///   A strongly-typed resource class, for looking up localized strings, etc.
++    /// </summary>
++    // This class was auto-generated by the StronglyTypedResourceBuilder
++    // class via a tool like ResGen or Visual Studio.
++    // To add or remove a member, edit your .ResX file then rerun ResGen
++    // with the /str option, or rebuild your VS project.
++    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
++    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
++    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
++    internal class Resources {
++        
++        private static global::System.Resources.ResourceManager resourceMan;
++        
++        private static global::System.Globalization.CultureInfo resourceCulture;
++        
++        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
++        internal Resources() {
++        }
++        
++        /// <summary>
++        ///   Returns the cached ResourceManager instance used by this class.
++        /// </summary>
++        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
++        internal static global::System.Resources.ResourceManager ResourceManager {
++            get {
++                if (object.ReferenceEquals(resourceMan, null)) {
++                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AM___Storage.Properties.Resources", typeof(Resources).Assembly);
++                    resourceMan = temp;
++                }
++                return resourceMan;
++            }
++        }
++        
++        /// <summary>
++        ///   Overrides the current thread's CurrentUICulture property for all
++        ///   resource lookups using this strongly typed resource class.
++        /// </summary>
++        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
++        internal static global::System.Globalization.CultureInfo Culture {
++            get {
++                return resourceCulture;
++            }
++            set {
++                resourceCulture = value;
++            }
++        }
++    }
++}
+diff --git a/AM - Storage/AM - Storage/Properties/Resources.resx b/AM - Storage/AM - Storage/Properties/Resources.resx
+new file mode 100644
+index 0000000..af7dbeb
+--- /dev/null
++++ b/AM - Storage/AM - Storage/Properties/Resources.resx	
+@@ -0,0 +1,117 @@
++﻿<?xml version="1.0" encoding="utf-8"?>
++<root>
++  <!-- 
++    Microsoft ResX Schema 
++    
++    Version 2.0
++    
++    The primary goals of this format is to allow a simple XML format 
++    that is mostly human readable. The generation and parsing of the 
++    various data types are done through the TypeConverter classes 
++    associated with the data types.
++    
++    Example:
++    
++    ... ado.net/XML headers & schema ...
++    <resheader name="resmimetype">text/microsoft-resx</resheader>
++    <resheader name="version">2.0</resheader>
++    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
++    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
++    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
++    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
++    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
++        <value>[base64 mime encoded serialized .NET Framework object]</value>
++    </data>
++    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
++        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
++        <comment>This is a comment</comment>
++    </data>
++                
++    There are any number of "resheader" rows that contain simple 
++    name/value pairs.
++    
++    Each data row contains a name, and value. The row also contains a 
++    type or mimetype. Type corresponds to a .NET class that support 
++    text/value conversion through the TypeConverter architecture. 
++    Classes that don't support this are serialized and stored with the 
++    mimetype set.
++    
++    The mimetype is used for serialized objects, and tells the 
++    ResXResourceReader how to depersist the object. This is currently not 
++    extensible. For a given mimetype the value must be set accordingly:
++    
++    Note - application/x-microsoft.net.object.binary.base64 is the format 
++    that the ResXResourceWriter will generate, however the reader can 
++    read any of the formats listed below.
++    
++    mimetype: application/x-microsoft.net.object.binary.base64
++    value   : The object must be serialized with 
++            : System.Serialization.Formatters.Binary.BinaryFormatter
++            : and then encoded with base64 encoding.
++    
++    mimetype: application/x-microsoft.net.object.soap.base64
++    value   : The object must be serialized with 
++            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
++            : and then encoded with base64 encoding.
++
++    mimetype: application/x-microsoft.net.object.bytearray.base64
++    value   : The object must be serialized into a byte array 
++            : using a System.ComponentModel.TypeConverter
++            : and then encoded with base64 encoding.
++    -->
++  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
++    <xsd:element name="root" msdata:IsDataSet="true">
++      <xsd:complexType>
++        <xsd:choice maxOccurs="unbounded">
++          <xsd:element name="metadata">
++            <xsd:complexType>
++              <xsd:sequence>
++                <xsd:element name="value" type="xsd:string" minOccurs="0" />
++              </xsd:sequence>
++              <xsd:attribute name="name" type="xsd:string" />
++              <xsd:attribute name="type" type="xsd:string" />
++              <xsd:attribute name="mimetype" type="xsd:string" />
++            </xsd:complexType>
++          </xsd:element>
++          <xsd:element name="assembly">
++            <xsd:complexType>
++              <xsd:attribute name="alias" type="xsd:string" />
++              <xsd:attribute name="name" type="xsd:string" />
++            </xsd:complexType>
++          </xsd:element>
++          <xsd:element name="data">
++            <xsd:complexType>
++              <xsd:sequence>
++                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
++                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
++              </xsd:sequence>
++              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
++              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
++              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
++            </xsd:complexType>
++          </xsd:element>
++          <xsd:element name="resheader">
++            <xsd:complexType>
++              <xsd:sequence>
++                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
++              </xsd:sequence>
++              <xsd:attribute name="name" type="xsd:string" use="required" />
++            </xsd:complexType>
++          </xsd:element>
++        </xsd:choice>
++      </xsd:complexType>
++    </xsd:element>
++  </xsd:schema>
++  <resheader name="resmimetype">
++    <value>text/microsoft-resx</value>
++  </resheader>
++  <resheader name="version">
++    <value>2.0</value>
++  </resheader>
++  <resheader name="reader">
++    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
++  </resheader>
++  <resheader name="writer">
++    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
++  </resheader>
++</root>
+\ No newline at end of file
+diff --git a/AM - Storage/AM - Storage/Properties/Settings.Designer.cs b/AM - Storage/AM - Storage/Properties/Settings.Designer.cs
+new file mode 100644
+index 0000000..8e5912d
+--- /dev/null
++++ b/AM - Storage/AM - Storage/Properties/Settings.Designer.cs	
+@@ -0,0 +1,26 @@
++﻿//------------------------------------------------------------------------------
++// <auto-generated>
++//     This code was generated by a tool.
++//     Runtime Version:4.0.30319.34014
++//
++//     Changes to this file may cause incorrect behavior and will be lost if
++//     the code is regenerated.
++// </auto-generated>
++//------------------------------------------------------------------------------
++
++namespace AM___Storage.Properties {
++    
++    
++    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
++    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
++    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
++        
++        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
++        
++        public static Settings Default {
++            get {
++                return defaultInstance;
++            }
++        }
++    }
++}
+diff --git a/AM - Storage/AM - Storage/Properties/Settings.settings b/AM - Storage/AM - Storage/Properties/Settings.settings
+new file mode 100644
+index 0000000..3964565
+--- /dev/null
++++ b/AM - Storage/AM - Storage/Properties/Settings.settings	
+@@ -0,0 +1,7 @@
++﻿<?xml version='1.0' encoding='utf-8'?>
++<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
++  <Profiles>
++    <Profile Name="(Default)" />
++  </Profiles>
++  <Settings />
++</SettingsFile>
