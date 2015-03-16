@@ -24,17 +24,27 @@ namespace AM___Storage
 
             SQLiteConnection dbConn = new SQLiteConnection("Data Source=AdventureManager.db;Version=3");
             dbConn.Open();
-            String sql = "create table if not exists Storage(ID Integer primary key, player_id int, current_space_used int, maxsimum_space)";
+            String sql = "create table if not exists Heroes(ID Integer primary key, intelligence int, strength int, health int, level int, exp int, salary int, cost int, playerID int, equipedItemID int)";
             SQLiteCommand command = new SQLiteCommand(sql, dbConn);
             command.ExecuteNonQuery();
 
-            sql = "create table if not exists Items(ID Integer primary key, weight int, quality string, is_in_storage bool, type string)";
+            /*sql = "create table if not exists Items(ID Integer primary key, weight int, quality string, is_in_storage bool, type string)";
             command = new SQLiteCommand(sql, dbConn);
-            command.ExecuteNonQuery();
+            command.ExecuteNonQuery();*/
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_hero_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
