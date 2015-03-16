@@ -22,5 +22,16 @@ namespace AM___Storage.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=\"C:\\Users\\asbjo_000\\Documents\\AdventureManagement\\AM - Storage\\AM - S" +
+            "torage\\bin\\Debug\\AdventureManager.db\"")]
+        public string AdventureManagerConnectionString {
+            get {
+                return ((string)(this["AdventureManagerConnectionString"]));
+            }
+        }
     }
 }
