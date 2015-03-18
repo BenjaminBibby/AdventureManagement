@@ -15,13 +15,44 @@ namespace AM___Storage
     {
         SQLiteConnection dbConn = new SQLiteConnection("Data Source=AdventureManager.db;Version=3");
 
+        #region Heroes fields + class
+        public int Agi;
+        public int Str;
+        public int Int;
+        public int HP;
+        public int Prc;
+        public int Sal;
+        public string Klasse;
+
+        private class Item
+        {
+            public string Name;
+            public int Value;
+            public Item(string name, int value)
+            {
+                Name = name; Value = value;
+            }
+            public override string ToString()
+            {
+                // Generates the text shown in the combo box
+                return Name;
+            }
+
+        }
         public Form1()
         {
             InitializeComponent();
             dbConn.Open();
             CreateTables();
+            comboBox1.Items.Add(new Item("Vælg Klasse", 0));
+            comboBox1.Items.Add(new Item("Rogue", 1));
+            comboBox1.Items.Add(new Item("Mage", 2));
+            comboBox1.Items.Add(new Item("Warrior", 3));
+            comboBox1.Items.Add(new Item("Priest", 4));
+            comboBox1.Items.Add(new Item("Hunter", 5));
         }
 
+        #endregion
 
         #region Adventure
         public int adventureCount = 0;
@@ -196,6 +227,11 @@ namespace AM___Storage
             String sql = "create table if not exists Trinket(ID Integer primary key, weight int, quality string, is_in_storage bool, attribute_type string, attribute_amount int)";
             SQLiteCommand command = new SQLiteCommand(sql, dbConn);
             command.ExecuteNonQuery();
+
+            sql = "create table if not exists Heroes(ID Integer primary key, Intelligence int, strength int, agility int, hp int, Buy_price int, Spiller_ID int, Exp int, Salary int, Equipped_Items_ID int, Class string)";
+            command = new SQLiteCommand(sql, dbConn);
+            command.ExecuteNonQuery();
+
         }
 
         private void UpdateStorage()
@@ -230,6 +266,9 @@ namespace AM___Storage
             {
                 listBox1.Items.Add(reader["ID"] + "\t" + reader["weight"] + "\t" + reader["quality"] + "\t\t" + reader["type"] + "\t" + reader["attribute_type"] + "\t" + reader["attribute_value"]);
             }
+
+          
+
         }
 
         #endregion
@@ -357,6 +396,113 @@ namespace AM___Storage
             string sql = "insert into Trinket(weight, quality, is_in_storage, type, attribute_type, attribute_value) values (0.1, 'legendary', 1, 'ring', 'int', 10)";
             SQLiteCommand command = new SQLiteCommand(sql, dbConn);
             command.ExecuteNonQuery();
+
+        }
+
+        private void tabPage2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                label16.Text = "Venligst vælg en gyldig Klasse.";
+                label16.Visible = true;
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                // Rogue Klasse, Agility Højest, så Int, så Strength, HP standard.
+                Random rnd = new Random();
+                Agi = rnd.Next(50, 100);
+                Int = rnd.Next(15, 65);
+                Str = rnd.Next(0, 50);
+                 HP = rnd.Next(10, 15);
+                 Prc = rnd.Next(1500, 2500);
+                 Sal = rnd.Next(200, 400);
+                Klasse = "Rogue";
+                label16.Text = "Klasse: " + Klasse + "\r\n Health: " + HP + "\r\n Styrke: " + Str + "\r\n Intelligens: " + Int + "\r\n Agilitet: " + Agi + "\r\n Pris: " + Prc + "\r\n Løn: " + Sal;
+                label16.Visible = true;
+
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                // Mage Klasse, Int Højest, så Agi, så Strength, HP Lav.
+                Random rnd = new Random();
+                 Agi = rnd.Next(15, 65);
+                 Int = rnd.Next(50, 100);
+                 Str = rnd.Next(0, 50);
+                 HP = rnd.Next(8, 12);
+                 Prc = rnd.Next(1500, 2500);
+                 Sal = rnd.Next(200, 400);
+                 Klasse = "Mage";
+                label16.Text = "Klasse: " + Klasse + "\r\n Health: " + HP + "\r\n Styrke: " + Str + "\r\n Intelligens: " + Int + "\r\n Agilitet: " + Agi + "\r\n Pris: " + Prc + "\r\n Løn: " + Sal;
+                label16.Visible = true;
+
+            }
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                // Warrior Klasse, Strength Højest, så Agi, så Int, HP Høj.
+                Random rnd = new Random();
+                 Agi = rnd.Next(15, 65);
+                 Int = rnd.Next(0, 50);
+                 Str = rnd.Next(50, 100);
+                 HP = rnd.Next(12, 17);
+                 Prc = rnd.Next(1500, 2500);
+                 Sal = rnd.Next(200, 400);
+                 Klasse = "Warrior";
+                label16.Text = "Klasse: " + Klasse + "\r\n Health: " + HP + "\r\n Styrke: " + Str + "\r\n Intelligens: " + Int + "\r\n Agilitet: " + Agi + "\r\n Pris: " + Prc + "\r\n Løn: " + Sal;
+                label16.Visible = true;
+
+            }
+            else if (comboBox1.SelectedIndex == 4)
+            {
+                // Priest Klasse, Int Højest, så Agi, så Strength, HP Lav.
+                Random rnd = new Random();
+                 Agi = rnd.Next(15, 65);
+                 Int = rnd.Next(50, 100);
+                 Str = rnd.Next(0, 50);
+                 HP = rnd.Next(8, 12);
+                 Prc = rnd.Next(1500, 2500);
+                 Sal = rnd.Next(200, 400);
+                 Klasse = "Priest";
+                label16.Text = "Klasse: " + Klasse + "\r\n Health: " + HP + "\r\n Styrke: " + Str + "\r\n Intelligens: " + Int + "\r\n Agilitet: " + Agi + "\r\n Pris: " + Prc + "\r\n Løn: " + Sal;
+                label16.Visible = true;
+
+            }
+            else if (comboBox1.SelectedIndex == 5)
+            {
+                // Hunter Klasse, Agility Højest, så Int, så Strength, HP standard.
+                Random rnd = new Random();
+                 Agi = rnd.Next(50, 100);
+                 Int = rnd.Next(15, 65);
+                 Str = rnd.Next(0, 50);
+                 HP = rnd.Next(10, 15);
+                 Prc = rnd.Next(1500, 2500);
+                 Sal = rnd.Next(200, 400);
+                 Klasse = "Hunter";
+                label16.Text += "Klasse: " + Klasse + "\r\n Health: " + HP + "\r\n Styrke: " + Str + "\r\n Intelligens: " + Int + "\r\n Agilitet: " + Agi + "\r\n Pris: " + Prc + "\r\n Løn: " + Sal;
+                label16.Visible = true;
+
+            }
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string sql = "insert into Heroes(Intelligence, strength, agility, hp, Buy_price, Spiller_ID, Exp, Salary, Equipped_Items_ID, Class) values (" + Int + ", " + Str + ", " + Agi + ", " + HP + ", " + Prc + ", " + 1 + ", '0', " + Sal + ", '0', '" + Klasse + "')";
+            SQLiteCommand command = new SQLiteCommand(sql, dbConn);
+            command.ExecuteNonQuery();
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
 
         }
     }
