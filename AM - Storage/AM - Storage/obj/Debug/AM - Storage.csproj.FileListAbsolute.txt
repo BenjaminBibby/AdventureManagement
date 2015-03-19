@@ -18,3 +18,12 @@ C:\Users\SharkGaming\Dropbox\Portfolio\SourceTree\AM - Storage\AM - Storage\obj\
 C:\Users\SharkGaming\Dropbox\Portfolio\SourceTree\AM - Storage\AM - Storage\obj\Debug\AM___Storage.Form1.resources
 C:\Users\SharkGaming\Dropbox\Portfolio\SourceTree\AM - Storage\AM - Storage\obj\Debug\AM___Storage.Properties.Resources.resources
 C:\Users\SharkGaming\Dropbox\Portfolio\SourceTree\AM - Storage\AM - Storage\obj\Debug\AM - Storage.csproj.GenerateResource.Cache
+C:\Users\thom441c\Desktop\Dania\Projekter\AdventureManagement\AM - Storage\AM - Storage\bin\Debug\AM - Storage.exe.config
+C:\Users\thom441c\Desktop\Dania\Projekter\AdventureManagement\AM - Storage\AM - Storage\obj\Debug\AM - Storage.csprojResolveAssemblyReference.cache
+C:\Users\thom441c\Desktop\Dania\Projekter\AdventureManagement\AM - Storage\AM - Storage\obj\Debug\AM___Storage.Form1.resources
+C:\Users\thom441c\Desktop\Dania\Projekter\AdventureManagement\AM - Storage\AM - Storage\obj\Debug\AM___Storage.Properties.Resources.resources
+C:\Users\thom441c\Desktop\Dania\Projekter\AdventureManagement\AM - Storage\AM - Storage\obj\Debug\AM - Storage.csproj.GenerateResource.Cache
+C:\Users\thom441c\Desktop\Dania\Projekter\AdventureManagement\AM - Storage\AM - Storage\bin\Debug\AM - Storage.exe
+C:\Users\thom441c\Desktop\Dania\Projekter\AdventureManagement\AM - Storage\AM - Storage\bin\Debug\AM - Storage.pdb
+C:\Users\thom441c\Desktop\Dania\Projekter\AdventureManagement\AM - Storage\AM - Storage\obj\Debug\AM - Storage.exe
+C:\Users\thom441c\Desktop\Dania\Projekter\AdventureManagement\AM - Storage\AM - Storage\obj\Debug\AM - Storage.pdb
