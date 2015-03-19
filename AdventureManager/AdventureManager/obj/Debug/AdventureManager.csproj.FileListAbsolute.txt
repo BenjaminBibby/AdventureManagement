@@ -1,0 +1,8 @@
+C:\Users\asbjo_000\Documents\AdventureManagement\AdventureManager\AdventureManager\bin\Debug\AdventureManager.exe.config
+C:\Users\asbjo_000\Documents\AdventureManagement\AdventureManager\AdventureManager\bin\Debug\AdventureManager.exe
+C:\Users\asbjo_000\Documents\AdventureManagement\AdventureManager\AdventureManager\bin\Debug\AdventureManager.pdb
+C:\Users\asbjo_000\Documents\AdventureManagement\AdventureManager\AdventureManager\bin\Debug\System.Data.SQLite.dll
+C:\Users\asbjo_000\Documents\AdventureManagement\AdventureManager\AdventureManager\bin\Debug\System.Data.SQLite.pdb
+C:\Users\asbjo_000\Documents\AdventureManagement\AdventureManager\AdventureManager\obj\Debug\AdventureManager.csprojResolveAssemblyReference.cache
+C:\Users\asbjo_000\Documents\AdventureManagement\AdventureManager\AdventureManager\obj\Debug\AdventureManager.exe
+C:\Users\asbjo_000\Documents\AdventureManagement\AdventureManager\AdventureManager\obj\Debug\AdventureManager.pdb
